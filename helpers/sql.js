@@ -5,7 +5,8 @@ const { BadRequestError } = require("../expressError");
 /**
  * Helper function to generate SQL syntax for a partial update. 
  * 
- * Given a JavaScript object representing the columns to be updated and a mapping of JavaScript to SQL column names,
+ * Given a JavaScript object representing the columns to be updated and a mapping of  
+ * JavaScript to SQL column names,
  * this function constructs the SQL SET clause for use in a SQL UPDATE statement.
  * 
  * For example:
