@@ -91,6 +91,7 @@ describe("ensureAdmin", () => {
     };
     ensureAdmin(req, res, next);
   })
+
   test("throw error if not admin", function () {
     expect.assertions(1);
     const req = {};
@@ -100,6 +101,7 @@ describe("ensureAdmin", () => {
     };
     ensureAdmin(req, res, next);
   })
+
   test("unauth if no user", function () {
     expect.assertions(1);
     const req = {};
@@ -121,6 +123,7 @@ describe("ensureMatchingUserOrAdmin", function () {
     };
     ensureMatchingUserOrAdmin(req, res, next);
   })
+
   test("works if user is matching but not admin", function () {
     expect.assertions(1);
     const req = { params: { username: "test" } };
@@ -130,6 +133,7 @@ describe("ensureMatchingUserOrAdmin", function () {
     };
     ensureMatchingUserOrAdmin(req, res, next);
   })
+
   test("throws error if mismatched and not admin", function () {
     expect.assertions(1);
     const req = { params: { username: "test" } };
@@ -139,6 +143,7 @@ describe("ensureMatchingUserOrAdmin", function () {
     };
     ensureMatchingUserOrAdmin(req, res, next);
   })
+  
   test("throw error if not user", function () {
     expect.assertions(1);
     const req = { params: { username: "test" } };

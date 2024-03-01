@@ -46,6 +46,11 @@ class Company {
 
   /** Find all companies.
    *
+   * optional search filters:
+   *  - minEmployees
+   *  - maxEmployees
+   *  - name (will find case-insensitive, partial matches)
+   * 
    * Returns [{ handle, name, description, numEmployees, logoUrl }, ...]
    * */
 

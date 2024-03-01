@@ -59,7 +59,7 @@ describe("POST /users", function () {
           email: "new@email.com",
           isAdmin: true,
         })
-        .set("authorization", `Bearer ${u1Token}`);
+        .set("authorization", `Bearer ${adminToken}`);
     expect(resp.statusCode).toEqual(201);
     expect(resp.body).toEqual({
       user: {
@@ -83,7 +83,7 @@ describe("POST /users", function () {
           email: "new@email.com",
           isAdmin: true,
         })
-        .set("authorization", `Bearer ${adminToken}`);
+        .set("authorization", `Bearer ${u1Token}`);
     expect(resp.statusCode).toEqual(401);
   });
 
@@ -164,7 +164,7 @@ describe("GET /users", function () {
   test("unauth for non-admins", async function () {
     const resp = await request(app)
       .get("/users")
-      .set("authorization", `Bearer ${adminToken}`);
+      .set("authorization", `Bearer ${u1Token}`);
     expect(resp.statusCode).toEqual(401);
   });
 
@@ -181,7 +181,7 @@ describe("GET /users", function () {
     await db.query("DROP TABLE users CASCADE");
     const resp = await request(app)
         .get("/users")
-        .set("authorization", `Bearer ${u1Token}`);
+        .set("authorization", `Bearer ${adminToken}`);
     expect(resp.statusCode).toEqual(500);
   });
 });
@@ -222,7 +222,7 @@ describe("GET /users/:username", function () {
   test("unauth for another user", async function () {
     const resp = await request(app)
       .get(`/users/u1`)
-      .set("authorization", `Bearer ${u1Token}`);
+      .set("authorization", `Bearer ${u2Token}`);
     expect(resp.statusCode).toEqual(401);
   });
 

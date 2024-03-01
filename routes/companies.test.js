@@ -45,7 +45,7 @@ describe("POST /companies", function () {
     const resp = await request(app)
       .post("/companies")
       .send(newCompany)
-      .set("authorization", `Bearer ${adminToken}`);
+      .set("authorization", `Bearer ${u1Token}`);
     expect(resp.statusCode).toEqual(401);
   });
 
